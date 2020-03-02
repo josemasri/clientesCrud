@@ -1,0 +1,37 @@
+<div class="card my-3">
+  <div class="card-header">
+    <h5 class="card-title">Modificar Cliente</h5>
+  </div>
+  <div class="card-body" *ngIf="clientes.length == 0" >
+    <p class="text-center">No hay clientes por el momento</p>
+  </div>
+  <div class="card-body" *ngIf="clientes.length > 0" >
+    <div class="form-group">
+      <select class="form-control" name="id" [(ngModel)]="id" (change)="rellenarCampos()">
+        <option *ngFor="let cliente of clientes" [value]="cliente.id">{{cliente.nombre}}</option>
+      </select>
+    </div>
+    <form>
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input class="form-control" type="text" [(ngModel)]="clienteModificado.nombre" name="nombre">
+      </div>
+      <div class="form-group">
+        <label>CIF:</label>
+        <input class="form-control" type="text" [(ngModel)]="clienteModificado.cif" name="cif">
+      </div>
+      <div class="form-group">
+        <label>Direccion:</label>
+        <input class="form-control" type="text" [(ngModel)]="clienteModificado.direccion" name="direccion">
+      </div>
+      <div class="form-group">
+        <label>Grupo:</label>
+        <select class="form-control" [(ngModel)]="clienteModificado.grupo" name="grupo">
+          <option *ngFor="let grupo of grupos" value="{{grupo.id}}">{{grupo.nombre}}</option>
+        </select>
+      </div>
+      <button class="btn btn-warning btn-block" (click)="modificar()">Modificar</button>
+    </form>
+
+  </div>
+</div>

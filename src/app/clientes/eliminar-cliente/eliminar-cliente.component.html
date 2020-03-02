@@ -1,0 +1,16 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <h5 class="card-title">Eliminar Cliente</h5>
+  </div>
+  <div class="card-body" *ngIf="clientes.length > 0" >
+    <div class="form-group">
+      <select class="form-control" name="id" [(ngModel)]="id">
+        <option *ngFor="let cliente of clientes" [value]="cliente.id">{{cliente.nombre}}</option>
+      </select>
+    </div>
+    <button class="btn btn-danger btn-block" (click)="eliminar()">Eliminar</button>
+  </div>
+  <div class="card-body" *ngIf="clientes.length == 0" >
+    <p class="text-center">No hay clientes por el momento</p>
+  </div>
+</div>

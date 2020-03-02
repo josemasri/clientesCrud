@@ -1,0 +1,28 @@
+<section class="card mt-3">
+  <div class="card-header">
+    <h5 class="card-title">Alta cliente</h5>
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input class="form-control" type="text" [(ngModel)]="cliente.nombre" name="nombre">
+      </div>
+      <div class="form-group">
+        <label>CIF:</label>
+        <input class="form-control" type="text" [(ngModel)]="cliente.cif" name="cif">
+      </div>
+      <div class="form-group">
+        <label>Direccion:</label>
+        <input class="form-control" type="text" [(ngModel)]="cliente.direccion" name="direccion">
+      </div>
+      <div class="form-group">
+        <label>Grupo:</label>
+        <select class="form-control" [(ngModel)]="cliente.grupo" name="grupo">
+          <option *ngFor="let grupo of grupos" value="{{grupo.id}}">{{grupo.nombre}}</option>
+        </select>
+      </div>
+      <button (click)="this.nuevoCliente()" class="btn btn-success btn-block">Agregar</button>
+    </form>
+  </div>
+</section>
