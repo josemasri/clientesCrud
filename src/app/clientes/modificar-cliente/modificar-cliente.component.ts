@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente, Grupo } from '../cliente.model';
 import { ClientesService } from '../clientes.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modificar-cliente',
@@ -38,6 +39,24 @@ export class ModificarClienteComponent implements OnInit {
     this.clienteModificado = this.clientesService.nuevoCliente();
   }
   modificar() {
-    this.clientesService.modificarCliente(this.clienteModificado);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: '¿No podras revertir esto!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Sí, modificar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Modificado!',
+          'El registro se modifico con éxito.',
+          'success'
+        );
+        this.clientesService.modificarCliente(this.clienteModificado);
+      }
+    });
   }
 }

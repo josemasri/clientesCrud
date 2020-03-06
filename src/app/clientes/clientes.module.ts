@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { ListadoClientesComponent } from './listado-clientes/listado-clientes.component';
 import { EliminarClienteComponent } from './eliminar-cliente/eliminar-cliente.component';
 import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 
 
@@ -12,7 +14,8 @@ import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente
   declarations: [AltaClienteComponent, ListadoClientesComponent, EliminarClienteComponent, ModificarClienteComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SweetAlert2Module
   ],
   exports: [AltaClienteComponent, ListadoClientesComponent, EliminarClienteComponent, ModificarClienteComponent]
 })
